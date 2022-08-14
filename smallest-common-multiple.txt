@@ -1,0 +1,20 @@
+function findScm (num1, num2) {
+  var min = Math.min(num1, num2)
+  var max = Math.max(num1, num2)
+  for(var i = max; i <= max*min; i+= max) {
+    if(i % min == 0)
+    return i
+  }
+}
+
+function smallestCommons(arr) {
+  var min = Math.min(arr[0], arr[1])
+  var max = Math.max(arr[0], arr[1])
+  var scm = 1;
+  for (var i = max; i >= min; i--) {
+    scm = findScm (scm, i)
+  }
+  return scm;
+}
+
+smallestCommons([1,5]);
